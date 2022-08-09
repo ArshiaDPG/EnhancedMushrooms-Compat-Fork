@@ -20,5 +20,6 @@ public class EMItems {
     public static final Supplier<Item> BROWN_MUSHROOM_BOAT_ITEM = ITEMS.register("brown_mushroom_boat", () -> new PollinatedBoatItem(EMEntities.BROWN_MUSHROOM_BOAT, new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
     public static final Supplier<Item> RED_MUSHROOM_BOAT_ITEM = ITEMS.register("red_mushroom_boat", () -> new PollinatedBoatItem(EMEntities.RED_MUSHROOM_BOAT, new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
     public static final Supplier<Item> GLOWSHROOM_BOAT_ITEM = ITEMS.register("glowshroom_boat", () -> new PollinatedBoatItem(EMEntities.GLOWSHROOM_BOAT, new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
+    public static final Supplier<Item> TOADSTOOL_BOAT_ITEM = ITEMS.register("toadstool_boat", () -> new PollinatedBoatItem(EMEntities.TOADSTOOL_BOAT, new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
 
 }

@@ -74,7 +74,7 @@ public class EMBlocks {
 
     public static final Pair<Supplier<PollinatedStandingSignBlock>, Supplier<PollinatedWallSignBlock>> BROWN_MUSHROOM_SIGN = BLOCKS.registerSign("brown_mushroom", Material.WOOD, MaterialColor.DIRT);
 
-    // Brown Mushroom Woodset
+    // Glowshroom Woodset
     private static final GlowingWoodset BOP_GLOWSHROOM = new GlowingWoodset(MaterialColor.SNOW, MaterialColor.DIAMOND, 6);
 
     public static final Supplier<Block> STRIPPED_BOP_GLOWSHROOM_STEM = BLOCKS.registerWithItem("stripped_glowshroom_stem", BOP_GLOWSHROOM::stripped_log, block -> new TabInsertBlockItem(Blocks.STRIPPED_WARPED_STEM.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
@@ -96,6 +96,30 @@ public class EMBlocks {
     public static final Pair<Supplier<PollinatedStandingSignBlock>, Supplier<PollinatedWallSignBlock>> BOP_GLOWSHROOM_SIGN = BLOCKS.registerSign("glowshroom", Material.WOOD, MaterialColor.DIAMOND);
 
 
+    // Toadstool Woodset
+    private static final Woodset TOADSTOOL = new Woodset(MaterialColor.SNOW, MaterialColor.DIAMOND);
+
+    public static final Supplier<Block> STRIPPED_TOADSTOOL_STEM = BLOCKS.registerWithItem("stripped_toadstool_stem", TOADSTOOL::stripped_log, block -> new TabInsertBlockItem(Blocks.STRIPPED_WARPED_STEM.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> STRIPPED_TOADSTOOL_HYPHAE = BLOCKS.registerWithItem("stripped_toadstool_hyphae", TOADSTOOL::stripped_wood, block -> new TabInsertBlockItem(Blocks.STRIPPED_WARPED_HYPHAE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> TOADSTOOL_STEM = BLOCKS.registerWithItem("toadstool_stem", TOADSTOOL::log, block -> new TabInsertBlockItem(Blocks.WARPED_STEM.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> TOADSTOOL_HYPHAE = BLOCKS.registerWithItem("toadstool_hyphae", TOADSTOOL::wood, block -> new TabInsertBlockItem(Blocks.WARPED_HYPHAE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+
+    public static final Supplier<Block> TOADSTOOL_PLANKS = BLOCKS.registerWithItem("toadstool_planks", TOADSTOOL::planks, block -> new TabInsertBlockItem(Blocks.WARPED_PLANKS.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> TOADSTOOL_SLAB = BLOCKS.registerWithItem("toadstool_slab", TOADSTOOL::slab, block -> new TabInsertBlockItem(Blocks.WARPED_SLAB.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> TOADSTOOL_STAIRS = BLOCKS.registerWithItem("toadstool_stairs", () -> TOADSTOOL.stairs(TOADSTOOL_PLANKS), block -> new TabInsertBlockItem(Blocks.WARPED_STAIRS.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> TOADSTOOL_PRESSURE_PLATE = BLOCKS.registerWithItem("toadstool_pressure_plate", TOADSTOOL::pressurePlate, block -> new TabInsertBlockItem(Blocks.WARPED_PRESSURE_PLATE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> TOADSTOOL_BUTTON = BLOCKS.registerWithItem("toadstool_button", TOADSTOOL::button, block -> new TabInsertBlockItem(Blocks.WARPED_BUTTON.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> TOADSTOOL_FENCE = BLOCKS.registerWithItem("toadstool_fence", TOADSTOOL::fence, block -> new TabInsertBlockItem(Blocks.WARPED_FENCE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final Supplier<Block> TOADSTOOL_FENCE_GATE = BLOCKS.registerWithItem("toadstool_fence_gate", TOADSTOOL::fenceGate, block -> new TabInsertBlockItem(Blocks.WARPED_FENCE_GATE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> TOADSTOOL_DOOR = BLOCKS.registerWithItem("toadstool_door", TOADSTOOL::door, block -> new TabInsertBlockItem(Blocks.WARPED_DOOR.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> TOADSTOOL_TRAPDOOR = BLOCKS.registerWithItem("toadstool_trapdoor", TOADSTOOL::trapdoor, block -> new TabInsertBlockItem(Blocks.WARPED_TRAPDOOR.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> TOADSTOOL_CABINET = BLOCKS.registerWithItem("toadstool_cabinet", TOADSTOOL::cabinet, new Item.Properties().tab(Platform.isModLoaded("farmersdelight") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null));
+
+    public static final Pair<Supplier<PollinatedStandingSignBlock>, Supplier<PollinatedWallSignBlock>> TOADSTOOL_SIGN = BLOCKS.registerSign("toadstool", Material.WOOD, MaterialColor.DIAMOND);
+
+
     // Cabinet Block Entity
-    public static final Supplier<BlockEntityType<EMCabinetBlockEntity>> CABINET_BE = BLOCK_ENTITIES.register("cabinet", () -> BlockEntityType.Builder.of(EMCabinetBlockEntity::new, EMBlocks.BROWN_MUSHROOM_CABINET.get(), EMBlocks.RED_MUSHROOM_CABINET.get(), EMBlocks.BOP_GLOWSHROOM_CABINET.get()).build(null));
+    public static final Supplier<BlockEntityType<EMCabinetBlockEntity>> CABINET_BE = BLOCK_ENTITIES.register("cabinet", () -> BlockEntityType.Builder.of(EMCabinetBlockEntity::new,
+            EMBlocks.BROWN_MUSHROOM_CABINET.get(), EMBlocks.RED_MUSHROOM_CABINET.get(),
+            EMBlocks.BOP_GLOWSHROOM_CABINET.get(), EMBlocks.TOADSTOOL_CABINET.get()).build(null));
 }

@@ -38,6 +38,10 @@ public class EnhancedMushrooms {
             RenderTypeRegistry.register(EMBlocks.BROWN_MUSHROOM_TRAPDOOR.get(), RenderType.cutoutMipped());
             RenderTypeRegistry.register(EMBlocks.RED_MUSHROOM_DOOR.get(), RenderType.cutoutMipped());
             RenderTypeRegistry.register(EMBlocks.RED_MUSHROOM_TRAPDOOR.get(), RenderType.cutoutMipped());
+            RenderTypeRegistry.register(EMBlocks.BOP_GLOWSHROOM_DOOR.get(), RenderType.cutoutMipped());
+            RenderTypeRegistry.register(EMBlocks.BOP_GLOWSHROOM_TRAPDOOR.get(), RenderType.cutoutMipped());
+            RenderTypeRegistry.register(EMBlocks.TOADSTOOL_DOOR.get(), RenderType.cutoutMipped());
+            RenderTypeRegistry.register(EMBlocks.TOADSTOOL_TRAPDOOR.get(), RenderType.cutoutMipped());
         });
     }
 
