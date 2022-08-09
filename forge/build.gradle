@@ -40,7 +40,9 @@ configurations {
     developmentForge.extendsFrom common
 }
 
-
+repositories {
+    maven {url = "https://www.cursemaven.com"}
+}
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
 
@@ -51,6 +53,10 @@ dependencies {
 
     implementation("com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras_version}")
     annotationProcessor("com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras_version}")
+
+//    runtimeOnly ("curse.maven:biomesoplenty-220318:${project.biomesOPlenty}")
+//    runtimeOnly ("curse.maven:terrablender-563928:${project.terraBlender}")
+//    runtimeOnly ("curse.maven:farmersdelight-398521:${project.farmersDelight}")
 }
 
 processResources {
