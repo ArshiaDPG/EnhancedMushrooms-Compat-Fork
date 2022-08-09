@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "enhanced_mushrooms:block/toadstool_slab" },
+    "type=top": { "model": "enhanced_mushrooms:block/toadstool_slab_top" },
+    "type=double": { "model": "enhanced_mushrooms:block/toadstool_planks" }
+  }
+}

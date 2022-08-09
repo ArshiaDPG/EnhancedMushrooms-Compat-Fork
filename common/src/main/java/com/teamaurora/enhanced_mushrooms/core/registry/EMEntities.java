@@ -17,4 +17,6 @@ public class EMEntities {
     /* Boats */
     public static final Supplier<PollinatedBoatType> BROWN_MUSHROOM_BOAT = BOATS.register("brown_mushroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/brown_mushroom.png")));
     public static final Supplier<PollinatedBoatType> RED_MUSHROOM_BOAT = BOATS.register("red_mushroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/red_mushroom.png")));
+    public static final Supplier<PollinatedBoatType> GLOWSHROOM_BOAT = BOATS.register("glowshroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/glowshroom.png")));
+
 }

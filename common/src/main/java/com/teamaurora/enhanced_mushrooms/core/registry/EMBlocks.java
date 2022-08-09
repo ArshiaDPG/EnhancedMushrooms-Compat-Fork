@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import com.teamaurora.enhanced_mushrooms.common.blockentity.EMCabinetBlockEntity;
 import com.teamaurora.enhanced_mushrooms.common.item.TabInsertBlockItem;
 import com.teamaurora.enhanced_mushrooms.core.EnhancedMushrooms;
+import com.teamaurora.enhanced_mushrooms.core.registry.util.GlowingWoodset;
 import com.teamaurora.enhanced_mushrooms.core.registry.util.Woodset;
 import gg.moonflower.pollen.api.block.PollinatedStandingSignBlock;
 import gg.moonflower.pollen.api.block.PollinatedWallSignBlock;
@@ -73,7 +74,28 @@ public class EMBlocks {
 
     public static final Pair<Supplier<PollinatedStandingSignBlock>, Supplier<PollinatedWallSignBlock>> BROWN_MUSHROOM_SIGN = BLOCKS.registerSign("brown_mushroom", Material.WOOD, MaterialColor.DIRT);
 
-    // Cabinet Block Entity
+    // Brown Mushroom Woodset
+    private static final GlowingWoodset BOP_GLOWSHROOM = new GlowingWoodset(MaterialColor.SNOW, MaterialColor.DIAMOND, 6);
 
-    public static final Supplier<BlockEntityType<EMCabinetBlockEntity>> CABINET_BE = BLOCK_ENTITIES.register("cabinet", () -> BlockEntityType.Builder.of(EMCabinetBlockEntity::new, EMBlocks.BROWN_MUSHROOM_CABINET.get(), EMBlocks.RED_MUSHROOM_CABINET.get()).build(null));
+    public static final Supplier<Block> STRIPPED_BOP_GLOWSHROOM_STEM = BLOCKS.registerWithItem("stripped_glowshroom_stem", BOP_GLOWSHROOM::stripped_log, block -> new TabInsertBlockItem(Blocks.STRIPPED_WARPED_STEM.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> STRIPPED_BOP_GLOWSHROOM_HYPHAE = BLOCKS.registerWithItem("stripped_glowshroom_hyphae", BOP_GLOWSHROOM::stripped_wood, block -> new TabInsertBlockItem(Blocks.STRIPPED_WARPED_HYPHAE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_STEM = BLOCKS.registerWithItem("glowshroom_stem", BOP_GLOWSHROOM::log, block -> new TabInsertBlockItem(Blocks.WARPED_STEM.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_HYPHAE = BLOCKS.registerWithItem("glowshroom_hyphae", BOP_GLOWSHROOM::wood, block -> new TabInsertBlockItem(Blocks.WARPED_HYPHAE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+
+    public static final Supplier<Block> BOP_GLOWSHROOM_PLANKS = BLOCKS.registerWithItem("glowshroom_planks", BOP_GLOWSHROOM::planks, block -> new TabInsertBlockItem(Blocks.WARPED_PLANKS.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_SLAB = BLOCKS.registerWithItem("glowshroom_slab", BOP_GLOWSHROOM::slab, block -> new TabInsertBlockItem(Blocks.WARPED_SLAB.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_STAIRS = BLOCKS.registerWithItem("glowshroom_stairs", () -> BOP_GLOWSHROOM.stairs(BOP_GLOWSHROOM_PLANKS), block -> new TabInsertBlockItem(Blocks.WARPED_STAIRS.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_PRESSURE_PLATE = BLOCKS.registerWithItem("glowshroom_pressure_plate", BOP_GLOWSHROOM::pressurePlate, block -> new TabInsertBlockItem(Blocks.WARPED_PRESSURE_PLATE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_BUTTON = BLOCKS.registerWithItem("glowshroom_button", BOP_GLOWSHROOM::button, block -> new TabInsertBlockItem(Blocks.WARPED_BUTTON.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_FENCE = BLOCKS.registerWithItem("glowshroom_fence", BOP_GLOWSHROOM::fence, block -> new TabInsertBlockItem(Blocks.WARPED_FENCE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_FENCE_GATE = BLOCKS.registerWithItem("glowshroom_fence_gate", BOP_GLOWSHROOM::fenceGate, block -> new TabInsertBlockItem(Blocks.WARPED_FENCE_GATE.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_DOOR = BLOCKS.registerWithItem("glowshroom_door", BOP_GLOWSHROOM::door, block -> new TabInsertBlockItem(Blocks.WARPED_DOOR.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_TRAPDOOR = BLOCKS.registerWithItem("glowshroom_trapdoor", BOP_GLOWSHROOM::trapdoor, block -> new TabInsertBlockItem(Blocks.WARPED_TRAPDOOR.asItem(), block, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+    public static final Supplier<Block> BOP_GLOWSHROOM_CABINET = BLOCKS.registerWithItem("glowshroom_cabinet", BOP_GLOWSHROOM::cabinet, new Item.Properties().tab(Platform.isModLoaded("farmersdelight") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null));
+
+    public static final Pair<Supplier<PollinatedStandingSignBlock>, Supplier<PollinatedWallSignBlock>> BOP_GLOWSHROOM_SIGN = BLOCKS.registerSign("glowshroom", Material.WOOD, MaterialColor.DIAMOND);
+
+
+    // Cabinet Block Entity
+    public static final Supplier<BlockEntityType<EMCabinetBlockEntity>> CABINET_BE = BLOCK_ENTITIES.register("cabinet", () -> BlockEntityType.Builder.of(EMCabinetBlockEntity::new, EMBlocks.BROWN_MUSHROOM_CABINET.get(), EMBlocks.RED_MUSHROOM_CABINET.get(), EMBlocks.BOP_GLOWSHROOM_CABINET.get()).build(null));
 }
