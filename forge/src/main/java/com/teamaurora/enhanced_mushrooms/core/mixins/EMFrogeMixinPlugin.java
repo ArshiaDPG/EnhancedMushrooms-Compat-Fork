@@ -1,6 +1,5 @@
 package com.teamaurora.enhanced_mushrooms.core.mixins;
 
-import gg.moonflower.pollen.api.platform.Platform;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -16,9 +15,18 @@ public class EMFrogeMixinPlugin implements IMixinConfigPlugin {
             "com.teamaurora.enhanced_mushrooms.core.mixin.MediumGlowshroomFeatureMixin",
             "com.teamaurora.enhanced_mushrooms.core.mixin.SmallGlowshroomFeatureMixin");
 
-    @Override
-    public void onLoad(String s) {
-        isBOPLoadedd = Platform.isModLoaded("biomesoplenty");
+    public void onLoad(String mixinPackage) {
+        BOP_GLOWSHROOM_MIXINS.forEach(thing -> isModLoaded(thing));
+
+    }
+    protected boolean isModLoaded(String name) {
+        try {
+            Class.forName(name, false, getClass().getClassLoader());
+            this.isBOPLoadedd = true;
+        } catch (ClassNotFoundException e) {
+            this.isBOPLoadedd = false;
+        }
+        return isBOPLoadedd;
     }
 
     @Override
@@ -28,7 +36,7 @@ public class EMFrogeMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClass, String mixinClassName) {
-        return !this.isBOPLoadedd || !BOP_GLOWSHROOM_MIXINS.contains(mixinClassName);
+        return this.isBOPLoadedd && BOP_GLOWSHROOM_MIXINS.contains(mixinClassName);
     }
 
     @Override
