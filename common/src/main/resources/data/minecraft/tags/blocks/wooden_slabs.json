@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "enhanced_mushrooms:glowshroom_slab",
+	"enhanced_mushrooms:toadstool_slab",
+    "enhanced_mushrooms:bop_glowshroom_slab",
     "enhanced_mushrooms:red_mushroom_slab",
     "enhanced_mushrooms:brown_mushroom_slab"
   ]

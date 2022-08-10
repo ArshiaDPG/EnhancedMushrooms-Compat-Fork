@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "enhanced_mushrooms:toadstool_stem",
+    "enhanced_mushrooms:toadstool_hyphae",
+    "enhanced_mushrooms:stripped_toadstool_stem",
+    "enhanced_mushrooms:stripped_toadstool_hyphae"
+  ]
+}

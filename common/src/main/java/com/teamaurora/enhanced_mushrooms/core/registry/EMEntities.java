@@ -17,7 +17,7 @@ public class EMEntities {
     /* Boats */
     public static final Supplier<PollinatedBoatType> BROWN_MUSHROOM_BOAT = BOATS.register("brown_mushroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/brown_mushroom.png")));
     public static final Supplier<PollinatedBoatType> RED_MUSHROOM_BOAT = BOATS.register("red_mushroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/red_mushroom.png")));
-    public static final Supplier<PollinatedBoatType> GLOWSHROOM_BOAT = BOATS.register("glowshroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/glowshroom.png")));
-    public static final Supplier<PollinatedBoatType> TOADSTOOL_BOAT = BOATS.register("toadstool_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/glowshroom.png")));
+    public static final Supplier<PollinatedBoatType> GLOWSHROOM_BOAT = BOATS.register("bop_glowshroom_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/bop_glowshroom.png")));
+    public static final Supplier<PollinatedBoatType> TOADSTOOL_BOAT = BOATS.register("toadstool_boat", () -> new PollinatedBoatType(new ResourceLocation(EnhancedMushrooms.MOD_ID, "textures/entity/boat/toadstool.png")));
 
 }
